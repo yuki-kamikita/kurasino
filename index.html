@@ -3,14 +3,7 @@ layout: default
 ---
 
 <div class="row">
-  {% for post in site.posts limit: 3 %}
-    <div class="col s12 m4">
-      <div class="card hoverable" onclick="location.href='{{ post.url }}'" style="cursor:pointer;">
-        <div class="card-content">
-          <span class="card-title">{{ post.title }}</span>
-          <p>{{ post.excerpt }}</p>
-        </div>
-      </div>
-    </div>
+  {% for post in site.posts %}
+    {% include post-card.html post=post %}
   {% endfor %}
 </div>

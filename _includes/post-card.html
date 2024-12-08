@@ -1,0 +1,13 @@
+<div class="col s12 m4">
+    <div class="card hoverable" onclick="location.href='{{ post.url }}'" style="cursor:pointer;">
+      <div class="card-content">
+        <span class="card-title">{{ post.title }}</span>
+        <p class="grey-text">{{ post.date | date: "%Y年%m月%d日" }}</p>
+        {% if post.categories %}
+          <p class="grey-text">カテゴリ: {{ post.categories | join: ", " }}</p>
+        {% endif %}
+        <p>{{ post.excerpt }}</p>
+      </div>
+    </div>
+  </div>
+  

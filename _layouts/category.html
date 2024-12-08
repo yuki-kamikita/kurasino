@@ -8,14 +8,7 @@ layout: default
     {% assign cat_posts = site.posts | where_exp:"post","post.categories contains page.title" %}
     {% if cat_posts.size > 0 %}
       {% for post in cat_posts %}
-        <div class="col s12 m4">
-          <div class="card hoverable" onclick="location.href='{{ post.url }}'" style="cursor:pointer;">
-            <div class="card-content">
-              <span class="card-title">{{ post.title }}</span>
-              <p>{{ post.excerpt }}</p>
-            </div>
-          </div>
-        </div>
+        {% include post-card.html post=post %}
       {% endfor %}
     {% else %}
       <p>このカテゴリーにはまだ記事がありません。</p>
