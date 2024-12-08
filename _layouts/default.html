@@ -1,1 +1,49 @@
-{{ content }}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="nav-wrapper teal lighten-2">
+      <div class="container">
+        <a href="{{ site.baseurl }}/" class="brand-logo">{{ site.title }}</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          {% for category in site.categories %}
+            <li><a href="{{ site.baseurl }}/category/{{ category[0] }}">{{ category[0] | capitalize }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  <footer class="page-footer teal lighten-2">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">About</h5>
+          <p class="grey-text text-lighten-4">{{ site.description }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © {{ site.time | date: "%Y" }} {{ site.title }}
+        <a class="grey-text text-lighten-4 right" href="{{ site.baseurl }}/privacy-policy">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

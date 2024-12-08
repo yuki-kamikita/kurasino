@@ -9,10 +9,16 @@ author: yuki_kamikita
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+  - jekyll-archives
 
 sass:
   style: expanded
 
-gems:
-  - jekyll-paginate
-  - jekyll-feed
+jekyll-archives:
+  enabled:
+    - categories
+  layouts:
+    category: category
+  permalinks:
+    category: /category/:name/
