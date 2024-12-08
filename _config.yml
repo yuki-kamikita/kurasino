@@ -2,8 +2,8 @@ title: 暮らしの手順書
 description: >-
   日々の生活の記録  
   書かれていることはすべて個人の見解です
-baseurl: ""
-url: ""
+baseurl: "/kurasino"
+url: "https://yuki-kamikita.github.io"
 author: yuki_kamikita
 
 theme: minima
