@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ site.title }}</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.url }}{{ site.baseurl }}/feed.xml">
 </head>
 <body>
   <!-- Header -->
@@ -34,12 +35,18 @@
           <h5 class="white-text">About</h5>
           <p class="grey-text text-lighten-4">{{ site.description }}</p>
         </div>
+        <div class="col l6 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="{{ site.baseurl }}/feed.xml">RSS Feed</a></li>
+            <li><a class="grey-text text-lighten-3" href="{{ site.baseurl }}/privacy-policy">Privacy Policy</a></li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
         © {{ site.time | date: "%Y" }} {{ site.title }}
-        <a class="grey-text text-lighten-4 right" href="{{ site.baseurl }}/privacy-policy">Privacy Policy</a>
       </div>
     </div>
   </footer>
