@@ -6,8 +6,6 @@ baseurl: "/kurashino"
 url: "https://yuki-kamikita.github.io"
 author: yuki_kamikita
 
-theme: minima
-
 plugins:
   - jekyll-feed
   - jekyll-paginate
@@ -15,8 +13,7 @@ plugins:
 
 markdown: kramdown
 
-sass:
-  style: expanded
+sass_dir: assets/css
 
 jekyll-archives:
   enabled:

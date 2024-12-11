@@ -1,0 +1,282 @@
+// assets/css/layout.scss
+
+// 変数定義
+$max-width: 1200px;
+$sm-breakpoint: 600px;
+
+// ミックスイン
+@mixin respond-to-sm {
+    @media (max-width: #{$sm-breakpoint}) {
+        @content;
+    }
+}
+
+// 全体スタイル
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
+    margin: 0;
+    padding: 0;
+}
+
+// ヘッダー関連
+header {
+    width: 100%;
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+    .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: $max-width;
+        margin: 0 auto;
+        padding: 0.75rem 1rem;
+        box-sizing: border-box;
+
+        .brand-logo {
+            font-size: 1.5rem; // タイトル文字拡大
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--md-sys-color-on-primary);
+        }
+
+        .header-categories {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+
+            li a {
+                text-decoration: none;
+                color: var(--md-sys-color-on-primary);
+                font-weight: 500;
+                padding: 0.5rem 0.75rem;
+                border-radius: 8px;
+                transition: background-color 0.2s;
+
+                &:hover {
+                    background-color: var(--md-sys-color-primary-container);
+                    color: var(--md-sys-color-on-primary-container);
+                }
+            }
+        }
+
+        .menu-button {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--md-sys-color-on-primary);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        // スマホ時はハンバーガーを左、タイトル中央、カテゴリ非表示
+        @include respond-to-sm {
+            justify-content: center;
+
+            .header-categories {
+                display: none;
+            }
+
+            .menu-button {
+                display: block;
+                position: absolute;
+                left: 1rem;
+            }
+
+            .brand-logo {
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+// ドロワーメニュー（左から表示）
+.drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+}
+
+.drawer {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: var(--md-sys-color-surface);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s ease;
+
+    .drawer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+
+    .drawer-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--md-sys-color-on-primary);
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    .drawer-categories {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li a {
+            display: block;
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--md-sys-color-on-surface);
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+
+            &:hover {
+                background-color: var(--md-sys-color-surface-container-high);
+            }
+        }
+    }
+}
+
+// メインコンテナ
+.container {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 1rem;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+// フッター
+.page-footer {
+    width: 100%;
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface-variant);
+    padding: 2rem 1rem 1rem 1rem;
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+    box-sizing: border-box;
+
+    .footer-inner {
+        max-width: $max-width;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: flex-start;
+        box-sizing: border-box;
+
+        .footer-section {
+            text-align: left;
+
+            h5 {
+                font-size: 1.25rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                color: var(--md-sys-color-on-surface);
+            }
+
+            p,
+            li,
+            li a {
+                font-size: 0.95rem;
+                color: var(--md-sys-color-on-surface-variant);
+                line-height: 1.5;
+                margin: 0;
+                padding: 0;
+            }
+
+            li {
+                margin-bottom: 0.5rem;
+            }
+
+            li a {
+                text-decoration: none;
+                transition: color 0.2s;
+
+                &:hover {
+                    color: var(--md-sys-color-primary);
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .footer-copy {
+        background-color: transparent;
+        color: var(--md-sys-color-on-surface-variant);
+        text-align: center;
+        padding: 1rem 0 0;
+        font-size: 0.8rem;
+    }
+}
+
+// カードレイアウト
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+
+    @media (max-width: #{$sm-breakpoint}px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        background-color: var(--md-sys-color-surface-container-high);
+    }
+
+    .card-content {
+        padding: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--md-sys-color-on-surface);
+    }
+}
+
+// リンク共通スタイル
+a {
+    color: var(--md-sys-color-primary);
+
+    &:hover {
+        color: var(--md-sys-color-on-primary-container);
+        text-decoration: underline;
+    }
+}
