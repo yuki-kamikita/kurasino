@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,10 @@
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/theme.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/layout.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/markdown.css">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.url }}{{ site.baseurl }}/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}"
+    href="{{ site.url }}{{ site.baseurl }}/feed.xml">
 </head>
+
 <body>
   <!-- Header -->
   <header>
@@ -16,11 +19,26 @@
       <a href="{{ site.baseurl }}/" class="brand-logo">{{ site.title }}</a>
       <ul class="header-categories">
         {% for category in site.categories %}
-          <li><a href="{{ site.baseurl }}/category/{{ category[0] }}">{{ category[0] | capitalize }}</a></li>
+        <li><a href="{{ site.baseurl }}/category/{{ category[0] }}">{{ category[0] | capitalize }}</a></li>
         {% endfor %}
       </ul>
+      <button class="menu-button" aria-label="Open menu">&#9776;</button>
     </div>
   </header>
+
+  <!-- ドロワーメニュー（モバイル用） -->
+  <div class="drawer-overlay"></div>
+  <div class="drawer">
+    <div class="drawer-header">
+      <span>{{ site.title }}</span>
+      <button class="drawer-close" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="drawer-categories">
+      {% for category in site.categories %}
+      <li><a href="{{ site.baseurl }}/category/{{ category[0] }}">{{ category[0] | capitalize }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
 
   <!-- Main Content -->
   <main class="container markdown-body">
@@ -47,6 +65,7 @@
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/drawer.js"></script>
 </body>
+
 </html>

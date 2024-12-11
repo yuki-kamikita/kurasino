@@ -1,3 +1,7 @@
+:root {
+    --sm-breakpoint: 600px;
+}
+
 body {
     font-family: "Roboto", sans-serif;
     background-color: var(--md-sys-color-background);
@@ -6,19 +10,35 @@ body {
     padding: 0;
 }
 
+/* 共通max-width適用用のラッパー */
+.max-width-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* ヘッダー */
+header {
+    width: 100%;
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
 .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
-    padding: 0.5rem 1rem;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    /* ヘッダー高さ調整 */
+    padding: 0.75rem 1rem;
+    box-sizing: border-box;
 }
 
 .brand-logo {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
     text-decoration: none;
     color: var(--md-sys-color-on-primary);
@@ -46,6 +66,98 @@ body {
     color: var(--md-sys-color-on-primary-container);
 }
 
+.menu-button {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--md-sys-color-on-primary);
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-left: 1rem;
+}
+
+/* モバイル対応 */
+@media (max-width: 600px) {
+    .header-categories {
+        display: none;
+        /* モバイル時は非表示 */
+    }
+
+    .brand-logo {
+        margin: 0 auto;
+        /* タイトルを中央寄せ */
+    }
+
+    .menu-button {
+        display: block;
+        position: absolute;
+        /* タイトルが中央のため、メニューボタンは右に寄せる */
+        right: 1rem;
+    }
+}
+
+/* ドロワーメニュー */
+.drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+}
+
+.drawer {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: var(--md-sys-color-surface);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s ease;
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.drawer-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--md-sys-color-on-primary);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.drawer-categories {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.drawer-categories li a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--md-sys-color-on-surface);
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.drawer-categories li a:hover {
+    background-color: var(--md-sys-color-surface-container-high);
+}
+
 /* メインコンテナ */
 .container {
     max-width: 1200px;
@@ -63,17 +175,22 @@ body {
     color: var(--md-sys-color-on-surface-variant);
     padding: 2rem 1rem 1rem 1rem;
     border-top: 1px solid var(--md-sys-color-outline-variant);
+    box-sizing: border-box;
 }
 
 .footer-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    justify-content: space-between;
     align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.footer-section {
+    text-align: left;
+    /* 左揃え */
 }
 
 .footer-section h5 {
