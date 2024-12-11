@@ -12,44 +12,38 @@
 <body>
   <!-- Header -->
   <header>
-    <nav class="nav-wrapper teal lighten-2">
-      <div class="container">
-        <a href="{{ site.baseurl }}/" class="brand-logo">{{ site.title }}</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          {% for category in site.categories %}
-            <li><a href="{{ site.baseurl }}/category/{{ category[0] }}">{{ category[0] | capitalize }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-    </nav>
+    <div class="header-inner">
+      <a href="{{ site.baseurl }}/" class="brand-logo">{{ site.title }}</a>
+      <ul class="header-categories">
+        {% for category in site.categories %}
+          <li><a href="{{ site.baseurl }}/category/{{ category[0] }}">{{ category[0] | capitalize }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
   </header>
 
   <!-- Main Content -->
-  <main class="container">
+  <main class="container markdown-body">
     {{ content }}
   </main>
 
   <!-- Footer -->
-  <footer class="page-footer teal lighten-2">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">About</h5>
-          <p class="grey-text text-lighten-4">{{ site.description }}</p>
-        </div>
-        <div class="col l6 s12">
-          <h5 class="white-text">Links</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="{{ site.baseurl }}/feed.xml">RSS Feed</a></li>
-            <li><a class="grey-text text-lighten-3" href="{{ site.baseurl }}/privacy-policy">Privacy Policy</a></li>
-          </ul>
-        </div>
+  <footer class="page-footer">
+    <div class="footer-inner">
+      <div class="footer-section">
+        <h5>About</h5>
+        <p>{{ site.description }}</p>
+      </div>
+      <div class="footer-section">
+        <h5>Links</h5>
+        <ul>
+          <li><a href="{{ site.baseurl }}/feed.xml">RSS Feed</a></li>
+          <li><a href="{{ site.baseurl }}/privacy-policy">Privacy Policy</a></li>
+        </ul>
       </div>
     </div>
-    <div class="footer-copyright">
-      <div class="container">
-        © {{ site.time | date: "%Y" }} {{ site.title }}
-      </div>
+    <div class="footer-copy">
+      © {{ site.time | date: "%Y" }} {{ site.title }}
     </div>
   </footer>
 

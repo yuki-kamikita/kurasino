@@ -1,6 +1,3 @@
-/* assets/css/layout.css */
-
-/* 全体 */
 body {
     font-family: "Roboto", sans-serif;
     background-color: var(--md-sys-color-background);
@@ -9,7 +6,47 @@ body {
     padding: 0;
 }
 
-/* 基本的なコンテナ */
+/* ヘッダー */
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    padding: 0.5rem 1rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.brand-logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--md-sys-color-on-primary);
+}
+
+.header-categories {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.header-categories li a {
+    text-decoration: none;
+    color: var(--md-sys-color-on-primary);
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.header-categories li a:hover {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+}
+
+/* メインコンテナ */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -19,61 +56,16 @@ body {
     border-radius: 0;
 }
 
-/* ヘッダー */
-header {
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
-    padding: 0.5rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    width: 100%;
-}
-
-header .brand-logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-    text-decoration: none;
-    color: var(--md-sys-color-on-primary);
-    margin: 0;
-    padding: 0;
-}
-
-header ul#nav-mobile {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
-}
-
-header ul#nav-mobile li a {
-    text-decoration: none;
-    color: var(--md-sys-color-on-primary);
-    font-weight: 500;
-    padding: 0.5rem 0.75rem;
-    border-radius: 8px;
-    transition: background-color 0.2s;
-}
-
-header ul#nav-mobile li a:hover {
-    background-color: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
-}
-
 /* フッター */
-footer.page-footer {
+.page-footer {
     width: 100%;
     background-color: var(--md-sys-color-surface-variant);
     color: var(--md-sys-color-on-surface-variant);
     padding: 2rem 1rem 1rem 1rem;
-    box-sizing: border-box;
     border-top: 1px solid var(--md-sys-color-outline-variant);
 }
 
-footer .container {
+.footer-inner {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0;
@@ -84,72 +76,62 @@ footer .container {
     align-items: flex-start;
 }
 
-footer h5 {
+.footer-section h5 {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1rem;
     color: var(--md-sys-color-on-surface);
 }
 
-footer p,
-footer li,
-footer li a {
+.footer-section p,
+.footer-section li,
+.footer-section li a {
     font-size: 0.95rem;
     color: var(--md-sys-color-on-surface-variant);
     line-height: 1.5;
+    margin: 0;
+    padding: 0;
 }
 
-footer li {
+.footer-section li {
     margin-bottom: 0.5rem;
 }
 
-footer li a {
+.footer-section li a {
     text-decoration: none;
     transition: color 0.2s;
 }
 
-footer li a:hover {
+.footer-section li a:hover {
     color: var(--md-sys-color-primary);
     text-decoration: underline;
 }
 
-footer .container>div {
-    flex: 1 1 200px;
-    min-width: 200px;
-}
-
-.footer-copyright {
+.footer-copy {
     background-color: transparent;
     color: var(--md-sys-color-on-surface-variant);
     text-align: center;
     padding: 1rem 0 0;
     font-size: 0.8rem;
-    border: none;
 }
 
-
-/* カードを並べるコンテナ (投稿一覧ページなどで使用する想定) */
-/* .post-grid というラッパー要素を用意し、その中に .card を並べます */
+/* カード（post-card用） */
 .post-grid {
     display: grid;
-    /* 幅300px程度を最小幅として、auto-fillで収まるだけ並べる */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1rem;
-    /* カード同士の隙間を確保する */
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
     box-sizing: border-box;
 }
 
-/* スマホサイズでは1列表示 */
 @media (max-width: 600px) {
     .post-grid {
         grid-template-columns: 1fr;
     }
 }
 
-/* カードデザイン */
 .card {
     background-color: var(--md-sys-color-surface);
     color: var(--md-sys-color-on-surface);
@@ -157,7 +139,6 @@ footer .container>div {
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
-    /* 個別にmarginを付けなくても、gridのgapで隙間は確保される */
 }
 
 .card:hover {
@@ -177,8 +158,7 @@ footer .container>div {
     color: var(--md-sys-color-on-surface);
 }
 
-
-/* リンク共通 */
+/* リンク共通スタイル */
 a {
     color: var(--md-sys-color-primary);
 }
