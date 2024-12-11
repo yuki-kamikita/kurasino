@@ -1,0 +1,166 @@
+/* assets/css/layout.css */
+
+/* 全体 */
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
+    margin: 0;
+    padding: 0;
+}
+
+/* 基本的なコンテナ: カード風デザインは削除 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    /* カード風の装飾削除、背景やボーダーなし */
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+/* ヘッダー */
+header {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+header .brand-logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--md-sys-color-on-primary);
+    margin: 0;
+    padding: 0;
+}
+
+header ul#nav-mobile {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+header ul#nav-mobile li a {
+    text-decoration: none;
+    color: var(--md-sys-color-on-primary);
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+header ul#nav-mobile li a:hover {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+}
+
+/* フッター */
+footer.page-footer {
+    width: 100%;
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface-variant);
+    padding: 2rem 1rem 1rem 1rem;
+    box-sizing: border-box;
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+footer h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--md-sys-color-on-surface);
+}
+
+footer p,
+footer li,
+footer li a {
+    font-size: 0.95rem;
+    color: var(--md-sys-color-on-surface-variant);
+    line-height: 1.5;
+}
+
+footer li {
+    margin-bottom: 0.5rem;
+}
+
+footer li a {
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer li a:hover {
+    color: var(--md-sys-color-primary);
+    text-decoration: underline;
+}
+
+footer .container>div {
+    flex: 1 1 200px;
+    min-width: 200px;
+}
+
+.footer-copyright {
+    background-color: transparent;
+    color: var(--md-sys-color-on-surface-variant);
+    text-align: center;
+    padding: 1rem 0 0;
+    font-size: 0.8rem;
+    border: none;
+}
+
+/* カードデザイン（post-card.html用） */
+.card {
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    background-color: var(--md-sys-color-surface-container-high);
+}
+
+.card .card-content {
+    padding: 1.5rem;
+}
+
+.card .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--md-sys-color-on-surface);
+}
+
+/* リンク共通 */
+a {
+    color: var(--md-sys-color-primary);
+}
+
+a:hover {
+    color: var(--md-sys-color-on-primary-container);
+    text-decoration: underline;
+}

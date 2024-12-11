@@ -1,0 +1,141 @@
+/* assets/css/markdown.css */
+
+/* 全体 */
+.markdown-body {
+    color: var(--md-sys-color-on-surface);
+    background-color: var(--md-sys-color-surface);
+}
+
+/* 見出し */
+.markdown-body h1 {
+    font-size: 2.5rem;
+    border-bottom: 2px solid var(--md-sys-color-outline-variant);
+    padding-bottom: 0.3em;
+}
+
+.markdown-body h2 {
+    font-size: 2rem;
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    padding-bottom: 0.3em;
+}
+
+.markdown-body h3 {
+    font-size: 1.75rem;
+}
+
+.markdown-body h4 {
+    font-size: 1.5rem;
+    margin-top: 1.25rem;
+}
+
+.markdown-body h5 {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+}
+
+.markdown-body h6 {
+    font-size: 1rem;
+    margin-top: 0.75rem;
+}
+
+/* リスト */
+.markdown-body ul {
+    padding-left: 1.5rem;
+}
+
+.markdown-body ul li {
+    margin-bottom: 0.5em;
+}
+
+.markdown-body ol {
+    padding-left: 1.5rem;
+}
+
+/* 引用 */
+.markdown-body blockquote {
+    border-left: 4px solid var(--md-sys-color-outline-variant);
+    padding-left: 1rem;
+    color: var(--md-sys-color-on-surface-variant);
+    font-style: italic;
+}
+
+/* コードブロック */
+.markdown-body pre {
+    background-color: var(--md-sys-color-surface-container);
+    padding: 1rem;
+    overflow: auto;
+    border-radius: 5px;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.markdown-body code {
+    background-color: var(--md-sys-color-surface-container);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: monospace;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+/* リンク */
+.markdown-body a {
+    color: var(--md-sys-color-primary);
+}
+
+.markdown-body a:hover {
+    text-decoration: underline;
+}
+
+/* 画像 */
+.markdown-body img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 5px;
+}
+
+/* テーブル */
+.markdown-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.markdown-body th,
+.markdown-body td {
+    border: 1px solid var(--md-sys-color-outline-variant);
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.markdown-body th {
+    background-color: var(--md-sys-color-surface-container);
+    color: var(--md-sys-color-on-surface);
+}
+
+/* 水平線 */
+.markdown-body hr {
+    border: none;
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+    margin: 2rem 0;
+}
+
+/* 強調 */
+.markdown-body strong {
+    font-weight: bold;
+}
+
+.markdown-body em {
+    font-style: italic;
+}
+
+/* リスト内のリンク */
+.markdown-body ul li a,
+.markdown-body ol li a {
+    color: var(--md-sys-color-primary);
+}
+
+.markdown-body ul li a:hover,
+.markdown-body ol li a:hover {
+    text-decoration: underline;
+}
