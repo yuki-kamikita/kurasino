@@ -2,9 +2,9 @@
 layout: default
 ---
 
-<div class="container" style="margin-top: 40px;">
+<div class="container">
   <h1>{{ page.title }} カテゴリーの記事</h1>
-  <div class="row">
+  <div class="post-grid">
     {% assign cat_posts = site.posts | where_exp:"post","post.categories contains page.title" %}
     {% if cat_posts.size > 0 %}
       {% for post in cat_posts %}
