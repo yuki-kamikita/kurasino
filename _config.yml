@@ -19,14 +19,10 @@ sass_dir: assets/css
 jekyll-archives:
   enabled:
     - categories
-  layouts:
-    category: category
-  permalinks:
-    category: /category/:name/
-
-  enabled:
     - tags
   layouts:
+    category: category
     tag: tag
   permalinks:
+    category: /category/:name/
     tag: /tag/:name/
