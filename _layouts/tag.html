@@ -3,15 +3,15 @@ layout: default
 ---
 
 <div class="container">
-    <h1>{{ page.title }} カテゴリーの記事</h1>
+    <h1>{{ page.title }} タグの記事</h1>
     <div class="post-grid">
-        {% assign cat_posts = site.posts | where_exp:"post","post.categories contains page.title" %}
+        {% assign cat_posts = site.posts | where_exp:"post","post.tags contains page.title" %}
         {% if cat_posts.size > 0 %}
             {% for post in cat_posts %}
                 {% include post-card.html post=post %}
             {% endfor %}
         {% else %}
-            <p>このカテゴリーにはまだ記事がありません。</p>
+            <p>このタグにはまだ記事がありません。</p>
         {% endif %}
     </div>
 </div>

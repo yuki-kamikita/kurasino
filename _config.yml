@@ -4,6 +4,7 @@ description: >-
   書かれていることはすべて個人の見解です
 baseurl: "/kurashino"
 url: "https://yuki-kamikita.github.io"
+permalink: /:categories/:title.html
 author: yuki_kamikita
 
 plugins:
@@ -22,3 +23,10 @@ jekyll-archives:
     category: category
   permalinks:
     category: /category/:name/
+
+  enabled:
+    - tags
+  layouts:
+    tag: tag
+  permalinks:
+    tag: /tag/:name/

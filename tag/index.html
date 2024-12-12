@@ -1,0 +1,10 @@
+---
+layout: default
+---
+
+<h1>タグ一覧</h1>
+<ul>
+{% for tag in site.tags %}
+  <li><a href="{{ site.baseurl }}/tag/{{ tag[0] }}">{{ tag[0] }}</a> ({{ tag[1].size }})</li>
+{% endfor %}
+</ul>
