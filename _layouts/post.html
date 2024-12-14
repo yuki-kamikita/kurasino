@@ -6,7 +6,7 @@ layout: default
     <a href="{{ site.baseurl }}/">Home</a>
     {% if page.categories and page.categories.size > 0 %}
     <span> > </span>
-    <a href="{{ site.baseurl }}/category/{{ page.categories[0] }}">{{ page.categories[0] | capitalize }}</a>
+    <a href="{{ site.baseurl }}/category/{{ page.categories[0] | lowercase_url }}">{{ page.categories[0] | capitalize }}</a>
     {% endif %}
     <span> > </span>
     <span>{{ page.title }}</span>
@@ -14,9 +14,8 @@ layout: default
 
 {% if page.tags %}
 <div class="post-tags">
-    <!-- <strong>Tags:</strong> -->
     {% for tag in page.tags %}
-    <a href="{{ site.baseurl }}/tag/{{ tag }}" class="chip chip-filled">{{ tag }}</a>
+    <a href="{{ site.baseurl }}/tag/{{ tag | lowercase_url }}" class="chip chip-filled">{{ tag }}</a>
     {% endfor %}
 </div>
 {% endif %}

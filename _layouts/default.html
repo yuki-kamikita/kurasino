@@ -29,7 +29,11 @@
       <a href="{{ site.baseurl }}/" class="brand-logo">{{ site.title }}</a>
       <ul class="header-categories">
         {% for category in site.categories %}
-        <li><a href="{{ site.baseurl }}/category/{{ category[0] }}">{{ category[0] | capitalize }}</a></li>
+        <li>
+          <a href="{{ site.baseurl }}/category/{{ category[0] | lowercase_url }}">
+            {{ category[0] | capitalize }}
+          </a>
+        </li>
         {% endfor %}
       </ul>
       <button class="menu-button" aria-label="Open menu">&#9776;</button>
@@ -45,7 +49,11 @@
     </div>
     <ul class="drawer-categories">
       {% for category in site.categories %}
-      <li><a href="{{ site.baseurl }}/category/{{ category[0] }}">{{ category[0] | capitalize }}</a></li>
+      <li>
+        <a href="{{ site.baseurl }}/category/{{ category[0] | lowercase_url }}">
+          {{ category[0] | capitalize }}
+        </a>
+      </li>
       {% endfor %}
     </ul>
   </div>

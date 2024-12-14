@@ -26,4 +26,3 @@ jekyll-archives:
   permalinks:
     category: /category/:name/
     tag: /tag/:name/
-  slugify_mode: raw
