@@ -26,3 +26,4 @@ jekyll-archives:
   permalinks:
     category: /category/:name/
     tag: /tag/:name/
+  slugify_mode: none # raw にすると記号を含めてそのまま出力する？
