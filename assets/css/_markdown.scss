@@ -57,6 +57,28 @@
     padding-left: 1rem;
     color: var(--md-sys-color-on-surface-variant);
     font-style: italic;
+    position: relative;
+    margin: 1em 0;
+}
+
+/* レンダリングされたアラート */
+.markdown-body blockquote.admonition-block {
+    font-style: normal; /* 通常文体に戻す */
+    background-color: var(--md-sys-color-surface-container, #f6f8fa);
+    border-radius: 8px;
+    padding: 0.75em 1em;
+    border-left: 4px solid; /* 色はJS側で個別指定 */
+}
+
+.markdown-body blockquote.admonition-block p {
+    margin: 0.5em 0;
+}
+
+/* ラベル部分 */
+.markdown-body blockquote.admonition-block .admonition-label {
+    display: inline-block;
+    margin-bottom: 0.5em;
+    font-weight: 600;
 }
 
 /* コードブロック */
